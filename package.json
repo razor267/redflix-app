@@ -5,7 +5,9 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
+    "android:dev": "expo start -c --android",
     "ios": "expo start --ios",
+    "ios:dev": "expo start -c --ios",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -15,7 +17,15 @@
     "react-native": "0.71.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@tsconfig/react-native": "^2.0.3",
+    "@types/expo": "^33.0.1",
+    "@types/react": "^18.0.28",
+    "@types/react-native": "^0.71.3",
+    "babel-plugin-root-import": "^6.6.0",
+    "prettier": "2.8.4",
+    "typescript": "^4.9.5"
   },
   "private": true
 }
