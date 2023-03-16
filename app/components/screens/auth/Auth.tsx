@@ -2,11 +2,11 @@ import React, { FC, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Pressable, Text, View } from 'react-native'
 
-import AuthFields from '@/components/screens/auth/AuthFields'
-import { Button, Loader } from '@/components/ui'
-import DismissKeyboard from '@/components/ui/form-elements/field/DismissKeyboard'
+import { Button, DismissKeyboard, Loader } from '@/components/ui'
 
 import { IAuthFormData } from '@/shared/types/auth.interface'
+
+import AuthFields from './AuthFields'
 
 const Auth: FC = () => {
 	const [isReg, setIsReg] = useState(false)
