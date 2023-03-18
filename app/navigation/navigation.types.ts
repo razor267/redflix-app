@@ -4,6 +4,10 @@ export type TypeRootStackParamList = {
 	Auth: undefined
 	Home: undefined
 	Screen404: undefined
+	Profile: undefined
+	Favorites: undefined
+	Trending: undefined
+	Search: undefined
 } & TypeRootStackAdminList
 
 type TypeRootStackAdminList = {
