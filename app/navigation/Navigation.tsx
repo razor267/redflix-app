@@ -4,6 +4,7 @@ import React, {FC, useEffect, useState} from 'react'
 import PrivateNavigator from './PrivateNavigator'
 import {useAuth} from '@/hooks/useAuth'
 import {BottomMenu} from '@/components/ui'
+import {useCheckAuth} from '@/providers/auth/useCheckAuth'
 
 const Navigation: FC = () => {
 
@@ -20,6 +21,8 @@ const Navigation: FC = () => {
             navRef.removeListener('state', listener)
         }
     }, [])
+
+    useCheckAuth(currentRoute)
 
     return (
         <>
