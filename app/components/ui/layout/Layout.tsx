@@ -15,7 +15,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({
 	className
 }) => {
 	return (
-		<SafeAreaView className='flex-1'>
+		<SafeAreaView className='flex-1 pt-7'>
 			<View
 				className={cn('pt-5 flex-1', className, {
 					'px-6': isHasPadding

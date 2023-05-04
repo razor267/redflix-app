@@ -3,12 +3,12 @@ import { IUser } from '@/shared/types/user.interface'
 
 import { request } from '@/services/api/request.api'
 
-import { getUserUrl } from '@/config/api.config'
+import { getUsersUrl } from '@/config/api.config'
 
 export const UserService = {
 	async getAll(searchTerm?: string) {
 		return request<IUser[]>({
-			url: getUserUrl(''),
+			url: getUsersUrl(''),
 			method: 'GET',
 			params: searchTerm
 				? {
@@ -19,7 +19,7 @@ export const UserService = {
 	},
 	async getProfile() {
 		return request<IUser>({
-			url: getUserUrl('/profile'),
+			url: getUsersUrl('/profile'),
 			method: 'GET'
 		})
 	},
@@ -31,27 +31,27 @@ export const UserService = {
     },*/
 	async getById(_id: string) {
 		return request<IUser>({
-			url: getUserUrl(`/${_id}`),
+			url: getUsersUrl(`/${_id}`),
 			method: 'GET'
 		})
 	},
 	async updateProfile(data: IAuthFormData) {
 		return request<IUser>({
-			url: getUserUrl('/profile'),
+			url: getUsersUrl('/profile'),
 			method: 'PUT',
 			data
 		})
 	},
 	async update(_id: string, data: IAuthFormData) {
 		return request<string>({
-			url: getUserUrl(`/${_id}`),
+			url: getUsersUrl(`/${_id}`),
 			method: 'PUT',
 			data
 		})
 	},
 	async deleteUser(_id: string) {
 		return request<string>({
-			url: getUserUrl(`/${_id}`),
+			url: getUsersUrl(`/${_id}`),
 			method: 'DELETE'
 		})
 	}
