@@ -34,7 +34,7 @@ export const MovieService = {
 			method: 'GET'
 		})
 	},
-	async getByGenres(genreIds: string) {
+	async getByGenres(genreIds: string[]) {
 		return request<IMovie[]>({
 			url: getMoviesUrl('/by-genres'),
 			method: 'POST',

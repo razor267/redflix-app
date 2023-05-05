@@ -37,7 +37,7 @@ const MovieCatalog: FC<IMovieCatalog> = ({
 					{movies?.length ? (
 						movies.map((movie, index) => (
 							<View key={movie._id} className='mb-6'>
-								<MovieItem index={index} movie={movie} />
+								<MovieItem index={index} movie={movie} style={{ width: 160 }} />
 							</View>
 						))
 					) : (

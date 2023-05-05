@@ -2,6 +2,7 @@ export { default as Loader } from './Loader'
 export { default as Button } from './button/Button'
 export { default as Heading } from './heading/Heading'
 export { default as BlurButton } from './blur-button/BlurButton'
+export { default as NotFound } from './NotFound'
 
 export { default as Layout } from './layout/Layout'
 export { default as BottomMenu } from './layout/bottom-menu/BottomMenu'
