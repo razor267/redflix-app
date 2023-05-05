@@ -9,6 +9,8 @@ export { default as BottomMenu } from './layout/bottom-menu/BottomMenu'
 export { default as Field } from './form-elements/field/Field'
 export { default as DismissKeyboard } from './form-elements/field/DismissKeyboard'
 
+export { default as MovieItem } from './movie/movie-item/MovieItem'
 export { default as Rating } from './movie/movie-item/Rating'
 export { default as GenreList } from './movie/movie-item/GenreList'
 export { default as FavoriteButton } from './movie/movie-item/favorite-button/FavoriteButton'
+export { default as MovieCatalog } from './movie/catalog/MovieCatalog'
