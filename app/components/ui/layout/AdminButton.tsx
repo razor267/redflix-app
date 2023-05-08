@@ -1,10 +1,15 @@
 import React, {FC} from 'react'
-import {View, Text, Pressable} from 'react-native'
+import {Pressable} from 'react-native'
 import {useTypedNavigation} from '@/hooks/useTypedNavigation'
 import {MaterialIcons} from '@expo/vector-icons'
+import {useAuth} from '@/hooks/useAuth'
 
 const AdminButton: FC = () => {
     const {navigate} = useTypedNavigation()
+
+    const {user} = useAuth()
+
+    if (!user?.isAdmin) return null
 
     return (
         <Pressable

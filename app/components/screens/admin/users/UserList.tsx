@@ -1,11 +1,11 @@
 import React, {FC} from 'react'
-import {View, Text} from 'react-native'
+import {AdminNavigation, Layout} from '@/components/ui'
 
 const UserList: FC = () => {
     return (
-        <View>
-            <Text>UserList</Text>
-        </View>
+        <Layout isHasPadding>
+            <AdminNavigation title='UserList'/>
+        </Layout>
     )
 }
 
