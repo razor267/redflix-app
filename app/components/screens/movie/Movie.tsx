@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import React, {FC} from 'react'
 
 import MovieBackground from '@/components/screens/movie/MovieBackground'
 import MovieHeader from '@/components/screens/movie/MovieHeader'
-import MovieInfo from '@/components/screens/movie/MovieInfo'
-import { useMovie } from '@/components/screens/movie/useMovie'
-import { Layout, Loader } from '@/components/ui'
+import {useMovie} from '@/components/screens/movie/useMovie'
+import {Layout, Loader} from '@/components/ui'
+import MovieContent from '@/components/screens/movie/movie-content/MovieContent'
 
 const Movie: FC = () => {
 	const { movie, isLoading } = useMovie()
@@ -16,7 +16,7 @@ const Movie: FC = () => {
 		<Layout style={{ paddingTop: 0 }}>
 			<MovieHeader movie={movie} />
 			<MovieBackground movie={movie} />
-			<MovieInfo movie={movie} />
+			<MovieContent movie={movie}/>
 		</Layout>
 	)
 }

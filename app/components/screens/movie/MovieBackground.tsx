@@ -1,17 +1,12 @@
-import { LinearGradient } from 'expo-linear-gradient'
-import React, { FC } from 'react'
-import { Animated, Image, StyleSheet } from 'react-native'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import {LinearGradient} from 'expo-linear-gradient'
+import React, {FC} from 'react'
+import {Animated, Image, StyleSheet} from 'react-native'
+import {useSafeAreaInsets} from 'react-native-safe-area-context'
 
-import { IMovie } from '@/shared/types/movie.interface'
+import {getMediaSource} from '@/utils/getMediaSource'
+import {IMovieComponent} from '@/components/screens/movie/movie-page.interface'
 
-import { getMediaSource } from '@/utils/getMediaSource'
-
-interface IMovieBackground {
-	movie: IMovie
-}
-
-const MovieBackground: FC<IMovieBackground> = ({ movie }) => {
+const MovieBackground: FC<IMovieComponent> = ({ movie }) => {
 	const { top } = useSafeAreaInsets()
 
 	return (
