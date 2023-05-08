@@ -1,11 +1,21 @@
 import React, {FC} from 'react'
-import {View, Text} from 'react-native'
+import {AdminHeader, AdminNavigation, AdminTable, Layout} from '@/components/ui'
+import {useMovies} from './useMovies'
 
 const MovieList: FC = () => {
+    const {control, data, isLoading, deleteAsync, createAsync} = useMovies()
+
     return (
-        <View>
-            <Text>MovieList</Text>
-        </View>
+        <Layout isHasPadding>
+            <AdminNavigation title='Movies'/>
+            <AdminHeader control={control} onPress={createAsync}/>
+            <AdminTable
+                tableItems={data}
+                isLoading={isLoading}
+                headerItems={['Title', 'Main genre', 'Rating']}
+                removeHandled={deleteAsync}
+            />
+        </Layout>
     )
 }
 
