@@ -6,8 +6,9 @@ import {BlurButton, FavoriteButton, Rating} from '@/components/ui'
 
 import {useTypedNavigation} from '@/hooks/useTypedNavigation'
 import {IMovieComponent} from '@/components/screens/movie/movie-page.interface'
+import { inputRange } from './movie.constant'
 
-const MovieHeader: FC<IMovieComponent> = ({movie}) => {
+const MovieHeader: FC<IMovieComponent> = ({movie, y}) => {
     const {goBack} = useTypedNavigation()
     const {top} = useSafeAreaInsets()
 
@@ -17,11 +18,22 @@ const MovieHeader: FC<IMovieComponent> = ({movie}) => {
             style={{marginTop: -top, paddingTop: top + 6}}
         >
             <Animated.View
-                style={{...StyleSheet.absoluteFillObject}}
+                style={{
+                    ...StyleSheet.absoluteFillObject,
+                    opacity: y.interpolate({
+                        inputRange,
+                        outputRange: [0, 0, 1.8]
+                    })
+                }}
                 className='bg-[#0D0404]'
             />
             <BlurButton icon={'chevron-left'} iconSize={23} onPress={goBack}/>
-            <Animated.View className='items-center w-2/3'>
+            <Animated.View className='items-center w-2/3' style={{
+                opacity: y.interpolate({
+                    inputRange,
+                    outputRange: [0, 0, 1.6]
+                })
+            }}>
                 <Text
                     className='text-white font-semibold text-2xl mb-0.5 px-2'
                     numberOfLines={1}
