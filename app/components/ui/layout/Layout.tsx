@@ -2,6 +2,7 @@ import cn from 'clsx'
 import React, {FC, PropsWithChildren} from 'react'
 import {Platform, SafeAreaView, View, ViewStyle} from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
+import AdminButton from '@/components/ui/layout/AdminButton'
 
 interface ILayout {
     className?: string
@@ -28,6 +29,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({
             >
                 {children}
             </View>
+            <AdminButton/>
         </SafeAreaView>
     )
 }
