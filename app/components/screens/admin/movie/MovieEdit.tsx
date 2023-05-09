@@ -23,7 +23,12 @@ const MovieEdit: FC = () => {
             <View>
                 {isLoading
                     ? <Loader/>
-                    : <ScrollView showsVerticalScrollIndicator={false}>
+                    : <ScrollView
+                        showsVerticalScrollIndicator={false}
+                        contentContainerStyle={{
+                            paddingBottom: 100
+                        }}
+                    >
                         <Field<IMovieEditInput>
                             control={control}
                             name='title'

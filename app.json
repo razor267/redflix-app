@@ -16,16 +16,23 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "requireFullScreen": true
+      "requireFullScreen": true,
+      "bundleIdentifier": "com.razor267.redflix"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#111111"
-      }
+      },
+      "package": "com.razor267.redflix"
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a1c6c2f7-0092-4d61-97e2-8cd7aeabca4c"
+      }
     }
   }
 }
