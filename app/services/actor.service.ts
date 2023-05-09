@@ -3,6 +3,7 @@ import {request} from '@/services/api/request.api'
 
 import {getActorsUrl} from '@/config/api.config'
 import {IActor, IActorEditInput} from '@/shared/types/actor.interface'
+import {IUser} from '@/shared/types/user.interface'
 
 export const ActorService = {
     async getAll(searchTerm?: string) {
@@ -19,7 +20,7 @@ export const ActorService = {
         })
     },
     async getById(_id: string) {
-        return request<IActorEditInput>({
+        return request<IUser>({
             url: getActorsUrl(`/${_id}`),
             method: 'GET'
         })
