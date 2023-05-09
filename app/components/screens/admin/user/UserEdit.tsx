@@ -7,6 +7,8 @@ import {AdminNavigation, Button, Layout, Loader} from '@/components/ui'
 import AuthFields from '@/components/screens/auth/AuthFields'
 import {IAuthFormData} from '@/shared/types/auth.interface'
 import {Pressable} from 'react-native'
+import ExpoCheckbox from 'expo-checkbox'
+import {getColor} from '@/config/colors.config'
 
 const UserEdit: FC = () => {
 
@@ -26,9 +28,14 @@ const UserEdit: FC = () => {
                             control={control}
                             name='isAdmin'
                             render={({field: {onChange, value}}) => (
-                                <Pressable onPress={() => onChange(!value)} className='my-5 w-40'>
-                                    <Text className='underline text-white text-base'>
-                                        {value ? 'Make it regular user' : 'Make it admin'}
+                                <Pressable onPress={() => onChange(!value)} className='my-5 w-40 flex-row items-center'>
+                                    <ExpoCheckbox
+                                        value={value}
+                                        onValueChange={onChange}
+                                        color={value ? getColor('primary') : undefined}
+                                    />
+                                    <Text className='text-white text-base ml-2.5'>
+                                        Admin rights
                                     </Text>
                                 </Pressable>)
                             }

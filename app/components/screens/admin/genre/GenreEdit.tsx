@@ -1,14 +1,14 @@
 import React, {FC} from 'react'
-import {View, Text} from 'react-native'
-import {useForm} from 'react-hook-form'
-import {IUserEditInput} from '@/shared/types/user.interface'
+import {ScrollView, View} from 'react-native'
+import {useForm, Controller} from 'react-hook-form'
 import {useGenreEdit} from './useGenreEdit'
-import {AdminNavigation, Button, Layout, Loader} from '@/components/ui'
+import {AdminNavigation, Button, Field, Layout, Loader, SlugWrapper, TextEditor} from '@/components/ui'
 import {IGenreEditInput} from '@/shared/types/genre.interface'
+import {generateSlug} from '@/utils/generateSlug'
 
 const GenreEdit: FC = () => {
 
-    const {control, setValue, handleSubmit} = useForm<IGenreEditInput>({mode: 'onChange'})
+    const {control, setValue, handleSubmit, getValues} = useForm<IGenreEditInput>({mode: 'onChange'})
 
     const {isLoading, onSubmit} = useGenreEdit(setValue)
 
@@ -18,11 +18,53 @@ const GenreEdit: FC = () => {
             <View>
                 {isLoading
                     ? <Loader/>
-                    : <>
+                    : <ScrollView showsVerticalScrollIndicator={false}>
+                        <Field<IGenreEditInput>
+                            control={control}
+                            name='name'
+                            placeholder='Enter name'
+                            rules={{
+                                required: 'Name is required!'
+                            }}
+                        />
+                        <SlugWrapper generate={() => setValue('slug', generateSlug(getValues('name')))}>
+                            <Field<IGenreEditInput>
+                                control={control}
+                                name='slug'
+                                placeholder='Enter slug'
+                                rules={{
+                                    required: 'Slug is required!'
+                                }}
+                            />
+                        </SlugWrapper>
+                        <Controller
+                            control={control}
+                            name='description'
+                            defaultValue=''
+                            render={({field: {onChange, value}, fieldState: {error}}) => (
+                                <TextEditor
+                                    onChange={onChange}
+                                    value={value}
+                                    error={error}
+                                    placeholder='Enter description here'
+                                />
+                            )}
+                            rules={{
+                                validate: {
+                                    required: value => {
+                                        const replaceHTML = value.replace(/<(.|\n)*?>/g, '').trim()
+                                        const replaceWhiteSpace = replaceHTML
+                                            .replace(/&nbsp;/g, '').trim()
+
+                                        return replaceWhiteSpace.length > 0 || 'Description is required!'
+                                    }
+                                }
+                            }}
+                        />
                         <Button onPress={handleSubmit(onSubmit)} icon='pen-tool'>
                             Update
                         </Button>
-                    </>}
+                    </ScrollView>}
             </View>
         </Layout>
     )

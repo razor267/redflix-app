@@ -1,6 +1,5 @@
 import React, {FC, useEffect, useState} from 'react'
 import {View} from 'react-native'
-import {BlurButton, Heading} from '@/components/ui'
 import {useTypedNavigation} from '@/hooks/useTypedNavigation'
 import Animated, {useAnimatedStyle, withSpring} from 'react-native-reanimated'
 import {BlurView} from 'expo-blur'
@@ -8,6 +7,8 @@ import {navItems} from './admin-navigation.data'
 import AdminNavItem from './AdminNavItem'
 import HamburgerAnimation from './hamburger-animation/HamburgerAnimation'
 import { useIsFocused } from '@react-navigation/native'
+import Heading from '../../heading/Heading'
+import BlurButton from '../../blur-button/BlurButton'
 
 interface IAdminNavigation {
     title: string

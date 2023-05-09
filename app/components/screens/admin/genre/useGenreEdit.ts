@@ -18,7 +18,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
         enabled: !!genreId
     })
 
-    const {invalidateQueries} = useQueryClient()
+    const queryClient = useQueryClient()
 
     const {mutateAsync} = useMutation(['update genre'], (data: IGenreEditInput) => GenreService.update(genreId, data), {
         async onSuccess() {
@@ -28,7 +28,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditInput>) => {
                 text2: 'update was successful'
             })
 
-            await invalidateQueries(['search genres'])
+            await queryClient.invalidateQueries(['search genres'])
         }
     })
 
